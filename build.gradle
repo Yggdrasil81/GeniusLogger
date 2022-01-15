@@ -1,0 +1,42 @@
+plugins {
+    id "com.github.johnrengelman.shadow" version "7.1.0"
+}
+
+apply plugin: 'idea'
+apply plugin: 'java-library'
+
+group = 'fr.yggdrasil80'
+version = '1.0.0'
+archivesBaseName = 'GeniusLogger'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(8)
+    }
+}
+
+compileJava {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    options.encoding = 'UTF-8'
+}
+
+configurations {
+    shade
+    implementation.extendsFrom shade
+}
+
+repositories {
+    mavenCentral()
+}
+
+shadowJar {
+    configurations = [project.configurations.shade]
+    archiveVersion.set('')
+    manifest {
+        attributes 'Main-Class': 'fr.yggdrasil80.geniuslogger.Main'
+    }
+}
+
+dependencies {
+    shade fileTree("libs")
+}
