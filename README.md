@@ -38,7 +38,7 @@
 
 ## Advanced usage[![](doc/pin.svg)](#advanced-usage)
 
-- You can use the [with or without java](https://github.com/Yggdrasil80/GeniusLogger/releases) packaged release, depending on your environment.
+- You can use the [with or without java packaged](https://github.com/Yggdrasil80/GeniusLogger/releases) release, depending on your environment.
 - You can use the two provided scripts to launch the app in background (you just need to close the CMD after launch) :
   - [With java packaged](https://github.com/Yggdrasil80/GeniusLogger/blob/master/Run%20with%20Java.bat) script :\
   ![](doc/with_java.png)
