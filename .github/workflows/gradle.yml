@@ -24,6 +24,14 @@ jobs:
         with:
           name: GeniusLogger
           path: |
-            build/libs/GeniusLogger-all.jar
-            jre1.8.0_202
+            build/libs/
             Run.bat
+
+      - name: Upload artifact with Java
+        uses: actions/upload-artifact@v2.3.1
+        with:
+          name: GeniusLogger with Java
+          path: |
+            build/libs/
+            jre1.8.0_202
+            Run with Java.bat
