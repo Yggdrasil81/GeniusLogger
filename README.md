@@ -30,7 +30,7 @@
 
 ## How to use[![](doc/pin.svg)](#how-to-use)
 
-- First, you need to set the ```GENIUS_SEND_URL``` variable in your Path (```http://redis.yggdrasil80.tech/log``` by default, check the [API Documentation](https://github.com/Yggdrasil80/GeniusAPI#how-to-use) to learn more).
+- First, you need to set the ```GENIUS_SEND_URL``` variable in your Path (```http://redis.yggdrasil80.tech/log``` by default, check the [API Documentation](https://github.com/Yggdrasil80/GeniusAPI#how-to-use) to learn more).\
 ![](doc/url_path.png)
 - Next, you can run ```java -jar GeniusLogger-all.jar```, and type something, there is no output by default.
 
@@ -40,8 +40,8 @@
 
 - You can use the [with or without java](https://github.com/Yggdrasil80/GeniusLogger/releases) packaged release, depending on your environment.
 - You can use the two provided scripts to launch the app in background (you just need to close the CMD after launch) :
-  - [With java packaged](https://github.com/Yggdrasil80/GeniusLogger/blob/master/Run%20with%20Java.bat) script :
+  - [With java packaged](https://github.com/Yggdrasil80/GeniusLogger/blob/master/Run%20with%20Java.bat) script :\
   ![](doc/with_java.png)
-  - [Without java packaged](https://github.com/Yggdrasil80/GeniusLogger/blob/master/Run.bat) script :
+  - [Without java packaged](https://github.com/Yggdrasil80/GeniusLogger/blob/master/Run.bat) script :\
   ![](doc/without_java.png)
 - You can set the sending delay by creating a ```GENIUS_SEND_DELAY``` variable in your Path, and set the delay (in seconds). Its 60s by default.
