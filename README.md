@@ -1,5 +1,5 @@
 <h1 align="center" style="display: block; font-size: 2.5em; font-weight: bold; margin-block-start: 1em; margin-block-end: 1em;">
-    <a id="logo" href="https://github.com/Yggdrasil80/GeniusLogger"><img align="center" src="https://avatars.githubusercontent.com/u/56512795" alt="Project Logo" style="width:100%;height:100%"/></a>
+    <a id="logo" href="https://github.com/Yggdrasil80/GeniusLogger"><img align="center" src="https://avatars.githubusercontent.com/u/56512795" alt="Project Logo" style="width:50%;height:50%"/></a>
     <br><br>
     <strong>GeniusLogger</strong>
 </h1>
