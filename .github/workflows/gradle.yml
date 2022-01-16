@@ -20,7 +20,10 @@ jobs:
         run: gradle shadowJar
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v2.3.1
         with:
           name: GeniusLogger
-          path: build/libs/
+          path: |
+            build/libs/GeniusLogger-all.jar
+            jre1.8.0_202
+            Run.bat
