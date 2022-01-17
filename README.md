@@ -29,7 +29,6 @@
 ---
 
 ## How to use[![](doc/pin.svg)](#how-to-use)
-
 - First, you need to set the ```GENIUS_SEND_URL``` variable in your Path (```http://redis.yggdrasil80.tech/log``` by default, check the [API Documentation](https://github.com/Yggdrasil80/GeniusAPI#how-to-use) to learn more).\
 ![](doc/url_path.png)
 - Next, you can run ```java -jar GeniusLogger-all.jar```, and type something, there is no output by default.
@@ -37,7 +36,6 @@
 ---
 
 ## Advanced usage[![](doc/pin.svg)](#advanced-usage)
-
 - You can use the [with or without java packaged](https://github.com/Yggdrasil80/GeniusLogger/releases) release, depending on your environment.
 - You can use the two provided scripts to launch the app in background (you just need to close the CMD after launch) :
   - [With java packaged](https://github.com/Yggdrasil80/GeniusLogger/blob/master/Run%20with%20Java.bat) script :\
