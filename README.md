@@ -44,4 +44,4 @@
   ![](doc/with_java.png)
   - [Without java packaged](https://github.com/Yggdrasil80/GeniusLogger/blob/master/Run.bat) script :\
   ![](doc/without_java.png)
-- You can set the sending delay by creating a ```GENIUS_SEND_DELAY``` variable in your Path, and set the delay (in seconds). Its 60s by default.
+- You can set the data sending delay by creating a ```GENIUS_SEND_DELAY``` variable in your Path, and set the delay (in seconds). Its 60s by default.
